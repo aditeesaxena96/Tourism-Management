@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="holiday">
+    <h3>Package List</h3>	
+  </div>
+  <div class="clearfix"></div>
+</div>
+<div *ngFor="let package of packages">
+<div class="rom-btm">
+  <div class="col-md-3 room-left wow fadeInLeft animated" data-wow-delay=".5s">
+  <img src="/src/assets/images/{{package.packageImage}}"  class="img-responsive" width="120%" height="120%">
+  </div>
+  <div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
+    <h4>Package Name:   {{package.packageName}}</h4>
+    <h4>Package Type:   {{package.packageType}}</h4>
+    <h4>Package Location:   {{package.packageName}}</h4>
+    <h4>Package Feature:   {{package.packageFeatures}}</h4>
+  </div>
+  <div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
+    <h5>USD</h5>{{package.packagePrice}}
+    
+    <a (click)="book(package)" class="btn-primary btn">Book</a>
+  </div>
+  <div class="clearfix"></div>		
+</div>
+</div>
