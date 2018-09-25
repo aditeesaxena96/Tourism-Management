@@ -14,6 +14,7 @@ token:string
 })};
   
   data;
+  tokenUser;
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +33,7 @@ token:string
   signupUser(signupData) : Observable<any>
   {
     //console.log(signupData);
-    return this.http.post('http://127.0.0.1:8000/api/tourist', signupData);
+    return this.http.post('http://127.0.0.1:8000/api/auth/push', signupData);
   }
 
   signinUser(signinData) : Observable<any>
@@ -45,10 +46,16 @@ token:string
     return this.http.post('http://127.0.0.1:8000/api/tourbooking', bookingData);
   }
 
+  logoutUser(token) : Observable<any>
+  {
+    return this.http.post('localhost:8000/api/auth/logout', token);
+  }
+
   enquiryUser(enquiryData) : Observable<any>
   {
     return this.http.post('http://127.0.0.1:8000/api/tourenquiry', enquiryData);
   }
+
 
 
  /* Transfering data from one component to another*/
@@ -59,7 +66,16 @@ token:string
   getStoreData(){
     return this.data;
   }
+
+  storeToken(token)
+  {
+    this.tokenUser=token;
+  }
   
+  getstoreToken()
+  {
+    return this.tokenUser;
+  }
 /*Form validation*/
 
 }

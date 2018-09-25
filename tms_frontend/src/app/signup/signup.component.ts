@@ -18,8 +18,8 @@ export class SignupComponent implements OnInit {
   Form=new FormGroup({
     name:new FormControl(''),
     mobile:new FormControl(''),
-    mail:new FormControl(''),
-    pass:new FormControl('')
+    email:new FormControl(''),
+    password:new FormControl('')
   });
 
   constructor(  private formBuilder: FormBuilder,private router: Router,private api: ApiService)
@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(10),  
         Validators.pattern('[0-9]*')
       ]),
-        mail:new FormControl(dataformstorage.mail,[
+        email:new FormControl(dataformstorage.email,[
         Validators.required,
         Validators.maxLength(55),
         Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
@@ -58,8 +58,8 @@ export class SignupComponent implements OnInit {
     var signupData={
       name:this.Form.controls.name.value,
       mobileNumber:this.Form.controls.mobile.value,
-      email:this.Form.controls.mail.value,
-      password:this.Form.controls.pass.value
+      email:this.Form.controls.email.value,
+      password:this.Form.controls.password.value
     }
     this.api.signupUser(signupData).subscribe(res =>
       {   
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       name: ['', Validators.required],
       mobile: ['', Validators.required],
-      mail: ['', Validators.required],
+      email: ['', Validators.required],
      // pass: ['', [Validators.required, Validators.minLength(6)]]
   });
   }

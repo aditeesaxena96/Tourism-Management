@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -37,6 +38,23 @@ class AuthController extends Controller
         return response()->json(auth()->user());
     }
 
+    public function index()
+    {
+        $booking= User::all();
+       dd($booking);
+        return $booking;
+    }
+
+    public function store(Request $request)
+    {
+            $user->name= $request->input('name');
+            $user->email= $request->input('email');
+            $user->password= $request->bcrypt('password');
+            if($user->save())
+            {
+                return $user;
+            }
+    }
     /**
      * Log the user out (Invalidate the token).
      *
@@ -71,7 +89,7 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60
+            'expires_in' => auth()->factory()->getTTL() * 9999999960
         ]);
     }
 }

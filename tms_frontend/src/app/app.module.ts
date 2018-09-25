@@ -21,6 +21,8 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
+import { LoginHeaderComponent } from './login-header/login-header.component';
+import { LoginCurrentComponent } from './login-current/login-current.component';
 
 
 /*routing define for components*/
@@ -33,6 +35,7 @@ const routes: Routes=
   { path: 'signin', component : SigninComponent },
   { path : 'enquiry', component : TourEnquiryComponent},
   { path: 'contactus', component: ContactUsComponent },
+  { path: 'page', component: LoginCurrentComponent},
   { path : '**', component : HomeComponent }
 ];
 
@@ -52,6 +55,8 @@ const routes: Routes=
     AdminHeaderComponent,
     AdminDashboardComponent,
     ContactUsComponent,
+    LoginHeaderComponent,
+    LoginCurrentComponent,
   ],
   imports: [
     BrowserModule,

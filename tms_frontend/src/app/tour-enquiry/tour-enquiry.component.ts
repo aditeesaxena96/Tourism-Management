@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '../../../node_modules/@angular/forms';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../api.service';
+import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
   selector: 'app-tour-enquiry',
@@ -12,7 +13,7 @@ export class TourEnquiryComponent implements OnInit {
  
   enquiryForm: FormGroup;
 
-  constructor(private builder:FormBuilder, private api:ApiService ) {
+  constructor(private builder:FormBuilder, private api:ApiService, private route: Router) {
     this.enquiryForm =builder.group({
       name:[''],
       email:[''],
@@ -31,7 +32,8 @@ export class TourEnquiryComponent implements OnInit {
       description:this.enquiryForm.controls.description.value
     }
     this.api.enquiryUser(enquiryData).subscribe(res=>{
-      console.log(res)
+      console.log(res);
+      this.route.navigate(['home']);
     },error=>{
         console.log("Wrong");
     }

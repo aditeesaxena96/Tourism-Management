@@ -7,14 +7,11 @@
           <form [formGroup]="Form" align="center" (ngSubmit)="Data()">
              <input type="text" formControlName="name" placeholder="Name" class="alert alert-success">
              <div id="down" class="alert alert-danger" *ngIf="Form.controls['name'].touched && !Form.controls['name'].valid "  style="color:red;font-weight:bold">&nbsp;&nbsp;&nbsp;Enter only letters</div>  
+              
+             <input type="email"  formControlName="email" placeholder="Email" class="alert alert-success">
+             <div class="alert alert-danger" *ngIf=" Form.controls['email'].touched && !Form.controls['email'].valid" style="color:red;font-weight:bold">&nbsp;&nbsp;&nbsp;Enter your valid email</div>
              
-             <input type="text"  formControlName="mobile" placeholder="Mobile Number" class="alert alert-success">
-             <div class="alert alert-danger" *ngIf="Form.controls['mobile'].touched && !Form.controls['mobile'].valid" style="color:red;font-weight:bold">&nbsp;&nbsp;&nbsp;Enter only digits</div>
-             
-             <input type="email"  formControlName="mail" placeholder="Email" class="alert alert-success">
-             <div class="alert alert-danger" *ngIf=" Form.controls['mail'].touched && !Form.controls['mail'].valid" style="color:red;font-weight:bold">&nbsp;&nbsp;&nbsp;Enter your valid email</div>
-             
-             <input type="password"  formControlName="pass" placeholder="Password"  class="alert alert-success">
+             <input type="password"  formControlName="password" placeholder="Password"  class="alert alert-success">
              <!--<div class="alert alert-danger" *ngIf="Form.controls['pass'].touched " style="color:red;font-weight:bold">&nbsp;&nbsp;&nbsp;Enter password</div>  -->       
              <button type="submit" [disabled]="!Form.valid" class="btn btn-primary" >Submit</button>
           </form>

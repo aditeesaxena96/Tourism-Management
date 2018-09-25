@@ -22,14 +22,15 @@ export class SigninComponent implements OnInit {
   onSubmit(){
     var user={
       email:this.loginForm.controls.username.value,
-      password:this.loginForm.controls.password.value
-      
+      password:this.loginForm.controls.password.value 
     }
+    this.api.store(this.loginForm.value);
     this.api.signinUser(user).subscribe(res=>{
-      console.log(res)
-      this.api.token= res.access_token
+      //console.log(res)
+      this.api.token= res.access_token;
+      this.api.storeToken(this.api.token);
       console.log(this.api.token);
-      this.route.navigate(['/home']);
+      this.route.navigate(['/page']);
     },error=>{
         console.log("Wrong");
     }

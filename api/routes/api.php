@@ -68,7 +68,8 @@ Route::group([
     'prefix' => 'auth'
 
 ], function () {
-
+    Route::get('index', 'AuthController@index');
+    Route::post('push', 'AuthController@store');
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
